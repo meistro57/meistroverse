@@ -1,0 +1,6 @@
+__version__ = "0.1.0"
+__title__ = "MEISTROVERSE"
+__description__ = "Omni-Behavioral Evolutionary Logic Interface for Synchronic Knowledge"
+__author__ = "Mark"
+__email__ = "mark@meistroverse.com"
+__license__ = "MIT"

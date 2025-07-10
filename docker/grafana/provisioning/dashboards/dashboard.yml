@@ -1,0 +1,14 @@
+# MEISTROVERSE Grafana Dashboards
+
+apiVersion: 1
+
+providers:
+  - name: 'meistroverse'
+    orgId: 1
+    folder: 'MEISTROVERSE'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /etc/grafana/provisioning/dashboards

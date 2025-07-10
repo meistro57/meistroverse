@@ -1,0 +1,28 @@
+# Development override for docker-compose
+# This file is automatically loaded by docker-compose and provides development-specific settings
+
+
+services:
+  meistroverse:
+    build:
+      target: builder  # Use builder stage for development
+    volumes:
+      - .:/app:cached  # Mount source code for live development
+      - /app/__pycache__  # Exclude pycache
+    environment:
+      - DEBUG=true
+      - RELOAD=true
+      - LOG_LEVEL=DEBUG
+    ports:
+      - "8000:8000"
+      - "5678:5678"  # For debugger
+
+  mysql:
+    ports:
+      - "3306:3306"  # Expose MySQL for external tools
+    volumes:
+      - ./docker/mysql/dev-init.sql:/docker-entrypoint-initdb.d/dev-init.sql:ro
+
+  redis:
+    ports:
+      - "6379:6379"  # Expose Redis for external tools
